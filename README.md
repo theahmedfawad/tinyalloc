@@ -48,6 +48,12 @@ The list of freed blocks is sorted by block start address. When a block is being
 
 Initializes the control datastructure. MUST be called prior to any other **tinyalloc** function.
 
+Formula for calulating total memory required (actual heap + internal usage) for ta_init()
+
+Assuming WORD_SIZE is 4
+
+TOTAL HEAP SIZE = 4 * WORD_SIZE + NUMBER_OF_BLOCKS *  3 * WORD_SIZE + HEAP_MEMORY_SIZE (bytes)
+   
 | Argument | Description |
 |----------|-------------|
 | `base` | Address of **tinyalloc** control structure, typically at the beginning of your heap |
